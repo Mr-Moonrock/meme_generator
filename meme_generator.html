@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="memegenerator.css">
+</head>
+<body>
+    <h1> Meme Generator </h1>
+
+    <div id="meme_generator" class="container">
+        <div id="img_display"> </div>
+        <div id="img_text"> </div> 
+
+        <div class="sidebar">
+            <p>Add Image</p>
+            <input type="file" id="img_file" accepts="image/png, imgae/jpg, image/jpeg">
+            <br>
+
+            <input type="text" id="topInput" placeholder="Top Text" >
+            Text size: <input type="range" id="slider" value="12" min="6" max="50">
+            <button type="button" id="topInputBtn"> Display </button>
+            <br>
+
+            <input type="text" id="btmInput" placeholder="Bottom Text">
+            Text size: <input type="range" id="slider" value="12" min="6" max="50">
+            <button type="button" id="btmInputBtn"> Display </button>
+        </div>
+    </div>
+    <script src="memegenerator.js"></script>
+</body>
+</html>
