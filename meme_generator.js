@@ -36,8 +36,8 @@ function getSize() {
         adjH = h;
         adjW = wRatio * w;
     }
-    uploadedImage.height = adjH;
-    uploadedImage.width = adjW;
+    uploadedImg.height = adjH;
+    uploadedImg.width = adjW;
 }
 // select the buttons
 const topInputBtn = document.getElementById('topInputBtn');
