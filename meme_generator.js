@@ -1,76 +1,72 @@
-            // select the input button and display
-const image_file = document.getElementById('img_file');
-const imgDisplay = document.getElementById('img_display');
+// select the input button and display
+const imageFile = document.getElementById('imgFile');
+const imgDisplay = document.getElementById('imgDisplay');
 
-            // create variable for image
-let uploaded_img = "";
+// create variable for image
+let uploadedImg = "";
 
-            // add Event Listener to (Choose File) button
-image_file.addEventListener('change', function() {
-            // Read the file
-    const reader = new FileReader();
-            // add event listener for (selected image)
-    reader.addEventListener('load', () => {
-        uploaded_img = reader.result;
-            // select the img display (div) and set image inside
-        document.getElementById('img_display').style.backgroundImage = `url(${uploaded_img})`;
-    });
-            // read first file selected
-    reader.readAsDataURL(this.files[0]);
-    
-            // adjust size of picture
-    uploaded_img.onload = getSize;
-            // create a function to calculate new size
-    function getSize() {
-            // original H & W
-        let height = uploaded_img.height;
-        let width = uploaded_img.width;
-            // size of display
-        let w = img_display.innerwidth;
-        let h = img_display.innerheight;
-
-    //formula = original w * new h / original h = new w
-    // formula = original h * new w / original w = new h
-            // adjusted H & W
-        let adjH = height * (w / width);
-        let adjW = w;
-
-        if(adjH > h) {
-        let wRatio = h / adjH;
-            adjH = h;
-            adjW = wRatio * w;
-        }
-        uploaded_image.height = adjH;
-        uploaded_image.width = adjW;
-    }
+// add Event Listener to (Choose File) button
+// Read the file
+// add event listener for (selected image)
+// select the img display (div) and set image inside
+// read first file selected
+imageFile.addEventListener('change', function() {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+        uploadedImg = reader.result;
+        document.getElementById('imgDisplay').style.backgroundImage = `url(${uploadedImg})`;});
+    reader.readAsDataURL(this.files[0]);     
+    uploadedImg.onload = getSize;
 });
-            // select the buttons
+// adjust size of picture
+// original H & W
+// size of display
+function getSize() {
+    let height = uploadedImg.height;
+    let width = uploadedImg.width;
+    let w = imgDisplay.innerwidth;
+    let h = imgDisplay.innerheight;
+//formula = original w * new h / original h = new w
+// formula = original h * new w / original w = new h
+// adjusted H & W
+    let adjH = height * (w / width);
+    let adjW = w;
+    if(adjH > h) {
+    let wRatio = h / adjH;
+        adjH = h;
+        adjW = wRatio * w;
+    }
+    uploadedImage.height = adjH;
+    uploadedImage.width = adjW;
+}
+// select the buttons
 const topInputBtn = document.getElementById('topInputBtn');
 const btmInputBtn = document.getElementById('btmInputBtn');
 
-            // add eventlisteners to text top button
+// add eventlisteners to text top button
+// select the display and at the text of input
+// append to img display
 topInputBtn.addEventListener('click', function () {
-            // select the display and at the text of input
-    let top_inputDisplay = document.getElementById('topInput').value;
-            // append to img display
-    document.getElementById('img_display').innerHTML = top_inputDisplay; 
+    let topInputDisplay = document.getElementById('topInput').value;
+    document.getElementById('imgDisplay').innerHTML = topInputDisplay; 
 })
-            // Repeat for btm button
+// Repeat for btm button
 btmInputBtn.addEventListener('click', function () {
-    let btm_inputDisplay = document.getElementById('btmInput').value;
-    document.getElementById('img_display').innerHTML = btm_inputDisplay 
-            // adjust to the bottom of div
+    let btmInputDisplay = document.getElementById('btmInput').value;
+    document.getElementById('imgDisplay').innerHTML = btmInputDisplay;
     });
-    
-            // function for sliders
-            // select the slider
+// adjust to the bottom of div
+
+// function for sliders
+// select the slider
 const slider = document.getElementById('slider');
     slider.oninput = fontSizeChange;
-            //create the function
-function fontSizeChange() {
-            // select the display and give slider a value & increments 
+
+//create the function
+// select the display and give slider a value & increments
+function fontSizeChange() {     
     imgDisplay.style.fontSize = slider.value + `px`;
-}
+};
 
 
             
